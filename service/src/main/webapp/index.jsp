@@ -1,17 +1,29 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Johnny
-  Date: 9/10/2015
-  Time: 12:42 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title></title>
 </head>
-<body><h4>Boooooooyah</h4><br />
-<img src="http://travelwithkat.com/wp-content/uploads/2014/01/Jola-810-x-540.jpg"/>
+<body style="margin: 0 auto;"><h2>Boooooooyah</h2><br />
+<div style="width: 100%">
+  <div style="width: 33.3%;float: left">
+    <button>Group</button>
+
+  </div>
+  <div style="width: 33.3%; float: left">
+   <a href="http://192.168.105.84/" ><button>User</button></a>
+
+  </div>
+  <div style="width: 33.3%;float: left">
+    <button>Presence</button>
+
+  </div>
+
+
+
+</div>
+
+
 
 </body>
 </html>
