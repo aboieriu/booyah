@@ -21,7 +21,7 @@ public class GroupDao implements IGroupDao {
         this.entityManager = entityManager;
     }
 
-    public List<Group> getAll(){
+    public List<Group> getAllGroups(){
 
         return this.entityManager.createQuery("from Group").getResultList();
     }
@@ -38,7 +38,7 @@ public class GroupDao implements IGroupDao {
     }
 
     @Transactional
-    public void saveGroup(Group group)
+    public void addGroup(Group group)
     {
         group.setStartDate(new Date());
         entityManager.persist(group);

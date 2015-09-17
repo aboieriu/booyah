@@ -10,8 +10,8 @@ import java.util.List;
 public interface IGroupDao {
 
 
-    public List<Group> getAll();
-    public void saveGroup(Group group);
+    public List<Group> getAllGroups();
+    public void addGroup(Group group);
     public void updateGroup(Group group);
     public void deleteGroup(Long id);
     public Group getGroup(Long id);

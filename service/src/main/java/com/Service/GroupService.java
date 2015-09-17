@@ -2,6 +2,7 @@ package com.Service;
 
 import model.Group;
 
+
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class GroupService {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
-    public List<model.Group> getAllGroups(){
+    public List<Group> getAllGroups(){
         return this.groupFacade.bringGroup();
 
     }
