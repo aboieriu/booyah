@@ -1,5 +1,6 @@
 package com.Service;
 
+import facade.IUserFacade;
 import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,7 @@ public class UserService {
     @RequestMapping(value="", method= RequestMethod.GET)
     @ResponseBody
     public List<User> getAllUser() {
-        return this.userFacade.bringUsers();
+        return this.userFacade.getAllUsers();
     }
 
     @RequestMapping(value="/{userId}", method= RequestMethod.GET)
