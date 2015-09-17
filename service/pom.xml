@@ -19,7 +19,6 @@
         <jackson.databind.version>
             2.5.4
         </jackson.databind.version>
-
     </properties>
 
     <dependencies>
