@@ -12,7 +12,7 @@
 
     <bean id="testDataSource" class="org.apache.commons.dbcp.BasicDataSource"
           p:driverClassName="com.mysql.jdbc.Driver"
-          p:url="jdbc:mysql:///blog"
+          p:url="jdbc:mysql://192.168.105.84/booyah"
           p:username="root"
             />
 
