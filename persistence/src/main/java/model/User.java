@@ -38,11 +38,11 @@ public class User {
     private String repositoryUrl;
 
     @Column(name = "groupId")
-    private int groupId;
+    private Long groupId;
 
     public User() {}
 
-    public User(String name, String surname, String username, String password, String email, Long phone, String repositoryUrl, int groupId) {
+    public User(String name, String surname, String username, String password, String email, Long phone, String repositoryUrl, Long groupId) {
         this.name = name;
         this.surname = surname;
         this.username = username;
@@ -117,11 +117,11 @@ public class User {
         this.repositoryUrl = repositoryUrl;
     }
 
-    public int getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(int groupId) {
+    public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
 }
