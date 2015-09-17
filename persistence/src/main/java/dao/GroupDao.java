@@ -60,6 +60,16 @@ public class GroupDao implements IGroupDao {
         }
     }
 
+    @Transactional
+    public void deleteGroup(Long id)
+    {
+        Group groupFromDbs = this.getGroup(id);
+        if (groupFromDbs != null) {
+            entityManager.remove(groupFromDbs);
+        }
+        //entityManager.remove(id);
+    }
+
 
 
 
