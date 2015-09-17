@@ -28,7 +28,7 @@ public class PresenceDao implements IPresenceDao{
     @Transactional
     public Presence getPresence(Long userId) {
         if (userId != null) {
-            Query query = this.entityManager.createQuery("from User WHERE id =:targetUserId");
+            Query query = this.entityManager.createQuery("from Presence WHERE id =:targetUserId");
             query.setParameter("targetUserId", userId);
             List<Presence> result = query.getResultList();
             if (!result.isEmpty()) {
