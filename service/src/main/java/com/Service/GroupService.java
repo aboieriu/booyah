@@ -1,5 +1,6 @@
 package com.Service;
 
+import facade.IGroupFacade;
 import model.Group;
 
 
@@ -28,7 +29,7 @@ public class GroupService {
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
     public List<Group> getAllGroups(){
-        return this.groupFacade.bringGroup();
+        return this.groupFacade.getAllGroups();
 
     }
 
@@ -43,9 +44,9 @@ public class GroupService {
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     @ResponseBody
-    public void addGroup(@RequestBody Group newGroup) {
+    public void addGroup(@RequestBody Group group) {
 
-        this.groupFacade.addGroup(newGroup);
+        this.groupFacade.addGroup(group);
     }
 
     @RequestMapping(value = "/{groupId}", method = RequestMethod.PUT)
