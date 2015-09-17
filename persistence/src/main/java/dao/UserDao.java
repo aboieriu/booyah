@@ -62,7 +62,7 @@ public class UserDao implements IUserDao {
         }
 
     }
-
+    @Transactional
     public User getUser(Long groupId, Long userId)
     {
         Query query = this.entityManager.createQuery("from User WHERE groupId = :targetGroupId AND id =:targetUserId");
@@ -74,7 +74,7 @@ public class UserDao implements IUserDao {
         }
 
     }
-
+    @Transactional
     public List<User> getAllUsers(Long groupId){
 
         Query query = this.entityManager.createQuery("from User WHERE groupId = :targetUserId");
