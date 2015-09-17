@@ -16,16 +16,16 @@ import model.Presence;
 
 public class PresenceService {
 
-    @RequestMapping(value = "/group/{groupId}/presence", method = RequestMethod.GET)
+    @RequestMapping(value = "/group/{groupId}/user/{userId}/presence", method = RequestMethod.GET)
     @ResponseBody
-    public List<Presence> getAllPresence(@PathVariable("groupId") Long groupId, @PathVariable("userId") Long userId ) {
+    public List<Presence> getPresence(@PathVariable("groupId") Long groupId, @PathVariable("userId") Long userId ) {
 
         return null;
     }
 
-    @RequestMapping(value = "/group/{groupId}/user/{userId}/presence", method = RequestMethod.GET)
+    @RequestMapping(value = "/group/{groupId}/presence", method = RequestMethod.GET)
     @ResponseBody
-    public Presence getPresence(@PathVariable("groupId") Long groupId){
+    public Presence getAllPresence(@PathVariable("groupId") Long groupId){
         return this.presenceFacade.getPresence(groupId);
     }
 
