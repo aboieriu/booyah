@@ -44,7 +44,7 @@ public class GroupService {
     @ResponseBody
     public void addGroup(@RequestBody Group newGroup) {
 
-        this.groupFacade.adGroup(newGroup);
+        this.groupFacade.addGroup(newGroup);
     }
 
     @RequestMapping(value = "/{groupId}", method = RequestMethod.PUT)
