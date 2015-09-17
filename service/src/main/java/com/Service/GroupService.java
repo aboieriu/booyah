@@ -1,9 +1,7 @@
 package com.Service;
-import facade.GroupFacade;
-import facade.IGroupFacade;
+
 import model.Group;
 
-import java.security.acl.Group;
 import java.util.Date;
 import java.util.List;
 
@@ -11,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
 /**
  * Created by Andrei on 9/17/2015.
  */
@@ -27,14 +26,11 @@ public class GroupService {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
-    public List<Group> getAllGroups(){
+    public List<model.Group> getAllGroups(){
         return this.groupFacade.bringGroup();
 
     }
 
-    public IGroupFacade getGroupFacade() {
-        return groupFacade;
-    }
     @RequestMapping(value = "/{groupId}", method = RequestMethod.GET)
     @ResponseBody
     public Group getGroup(@PathVariable("groupId") Long groupId){
@@ -48,7 +44,7 @@ public class GroupService {
     @ResponseBody
     public void addGroup(@RequestBody Group newGroup) {
 
-        this.groupFacade.addGroup(newGroup);
+        this.groupFacade.adGroup(newGroup);
     }
 
     @RequestMapping(value = "/{groupId}", method = RequestMethod.PUT)
