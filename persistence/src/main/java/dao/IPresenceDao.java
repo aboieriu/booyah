@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface IPresenceDao {
 
-    public List<Presence> getAll();
-    public Presence getPresence(Long userId);
-    public void deletePresence(Long id);
-    public void savePresence(Presence myPresence);
+    public List<Presence> getAll(Long groupId);
+    public Presence getPresence(Long userId, Long groupId);
+    public void deletePresence(Long userId, Long groupId);
+    public void addPresence(Presence myPresence);
 
 }

@@ -21,15 +21,20 @@ public class PresenceDao implements IPresenceDao{
         this.entityManager = entityManager;
     }
 
-    public List<Presence> getAll() {
-        return this.entityManager.createQuery("from Presence").getResultList();
+    public List<Presence> getAll(Long groupId) {
+
+        Query query = this.entityManager.createQuery("from Presence WHERE groupId =:targetGroupId");
+        query.setParameter("targetGroupId", groupId);
+        return query.getResultList();
+
     }
 
     @Transactional
-    public Presence getPresence(Long userId) {
-        if (userId != null) {
-            Query query = this.entityManager.createQuery("from Presence WHERE id =:targetUserId");
+    public Presence getPresence(Long userId, Long groupId) {
+        if (userId != null && groupId != null) {
+            Query query = this.entityManager.createQuery("from Presence WHERE userId =:targetUserId AND groupId =:targetUserId");
             query.setParameter("targetUserId", userId);
+            query.setParameter("targetUserId", groupId);
             List<Presence> result = query.getResultList();
             if (!result.isEmpty()) {
                 return result.get(0);
@@ -41,29 +46,18 @@ public class PresenceDao implements IPresenceDao{
 
 
     @Transactional
-    public void deletePresence(Long id) {
+    public void deletePresence(Long userId, Long groupId) {
 
-        Presence itemFromDbs = this.getPresence(id);
+        Presence itemFromDbs = this.getPresence(userId, groupId);
         if (itemFromDbs != null) {
             entityManager.remove(itemFromDbs);
         }
     }
 
     @Transactional
-    public void savePresence(Presence myPresence) {
+    public void addPresence(Presence myPresence) {
 
         myPresence.setDate(new Date());
         entityManager.persist(myPresence);
     }
-
-
-
-
-
-
-
-
-
-
-
 }
