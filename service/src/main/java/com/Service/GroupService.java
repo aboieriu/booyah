@@ -1,4 +1,4 @@
-package com.service;
+package com.Service;
 import facade.GroupFacade;
 import facade.IGroupFacade;
 import model.Group;
@@ -27,7 +27,7 @@ public class GroupService {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
-    public List<Group> getAllGroups){
+    public List<Group> getAllGroups(){
         return this.groupFacade.bringGroup();
 
     }
