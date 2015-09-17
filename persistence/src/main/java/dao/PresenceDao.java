@@ -30,11 +30,11 @@ public class PresenceDao implements IPresenceDao{
     }
 
     @Transactional
-    public Presence getPresence(Long userId, Long groupId) {
+    public Presence getPresence(Long groupId, Long userId) {
         if (userId != null && groupId != null) {
-            Query query = this.entityManager.createQuery("from Presence WHERE userId =:targetUserId AND groupId =:targetUserId");
+            Query query = this.entityManager.createQuery("from Presence WHERE groupId =:targetGroupId AND userId =:targetUserId");
+            query.setParameter("targetGroupId", groupId);
             query.setParameter("targetUserId", userId);
-            query.setParameter("targetUserId", groupId);
             List<Presence> result = query.getResultList();
             if (!result.isEmpty()) {
                 return result.get(0);
@@ -46,9 +46,9 @@ public class PresenceDao implements IPresenceDao{
 
 
     @Transactional
-    public void deletePresence(Long userId, Long groupId) {
+    public void deletePresence(Long groupId, Long userId) {
 
-        Presence itemFromDbs = this.getPresence(userId, groupId);
+        Presence itemFromDbs = this.getPresence(groupId, userId);
         if (itemFromDbs != null) {
             entityManager.remove(itemFromDbs);
         }

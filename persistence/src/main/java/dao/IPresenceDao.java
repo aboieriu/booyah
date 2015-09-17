@@ -11,7 +11,7 @@ public interface IPresenceDao {
 
     public List<Presence> getAll(Long groupId);
     public Presence getPresence(Long userId, Long groupId);
-    public void deletePresence(Long userId, Long groupId);
+    public void deletePresence(Long groupId, Long userId);
     public void addPresence(Presence myPresence);
 
 }

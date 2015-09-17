@@ -1,5 +1,6 @@
 package com.Service;
 
+import facade.IPresenceFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,17 +17,20 @@ import model.Presence;
 
 public class PresenceService {
 
+    @Autowired
+    private IPresenceFacade presenceFacade;
+
     @RequestMapping(value = "/group/{groupId}/user/{userId}/presence", method = RequestMethod.GET)
     @ResponseBody
-    public List<Presence> getPresence(@PathVariable("groupId") Long groupId, @PathVariable("userId") Long userId ) {
+    public Presence getPresence(@PathVariable("groupId") Long groupId, @PathVariable("userId") Long userId ) {
 
         return null;
     }
 
     @RequestMapping(value = "/group/{groupId}/presence", method = RequestMethod.GET)
     @ResponseBody
-    public Presence getAllPresence(@PathVariable("groupId") Long groupId){
-        return this.presenceFacade.getPresence(groupId);
+    public List<Presence> getAllPresence(@PathVariable("groupId") Long groupId){
+        return this.presenceFacade.getAllPresence(groupId);
     }
 
     @RequestMapping(value = "/group/{groupId}/user/{userId}/presence", method = RequestMethod.POST)
