@@ -65,13 +65,14 @@ public class UserDao implements IUserDao {
     @Transactional
     public User getUser(Long groupId, Long userId)
     {
-        Query query = this.entityManager.createQuery("from User WHERE groupId = :targetGroupId AND id =:targetUserId");
+        Query query = this.entityManager.createQuery("from User WHERE groupId =:targetGroupId AND id =:targetUserId");
         query.setParameter("targetGroupId", groupId);
         query.setParameter("targetUserId", userId);
         List<User> result = query.getResultList();
         if(!result.isEmpty()){
             return result.get(0);
         }
+        return null;
 
     }
     @Transactional
