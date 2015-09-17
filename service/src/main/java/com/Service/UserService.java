@@ -1,4 +1,4 @@
-package com.service;
+package com.Service;
 
 import facade.IUserFacade;
 import model.User;
