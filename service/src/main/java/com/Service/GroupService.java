@@ -21,6 +21,7 @@ public class GroupService {
 
   @Autowired
     private IGroupFacade groupFacade;
+
     public IGroupFacade getGroupFacade() {
         return groupFacade;
     }
