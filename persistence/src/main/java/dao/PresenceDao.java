@@ -53,9 +53,18 @@ public class PresenceDao implements IPresenceDao{
             entityManager.remove(itemFromDbs);
         }
     }
+    private Presence getPrecenceByDate(Date startDate) {    //verifica daca  exista o prezenta cu data respectiva
+        Query query = this.entityManager.createQuery("from Presence WHERE  startDate=:targetstartDate");
+        query.setParameter("targetstartDate", startDate);
+        return (Presence) query.getSingleResult();
+    }
 
     @Transactional
     public void addPresence(Presence myPresence) {
-        entityManager.persist(myPresence);
+        Presence presenceFromDb = this.getPrecenceByDate(myPresence.getDate());
+        if(presenceFromDb != null){
+            entityManager.persist(myPresence);
+        }
+
     }
 }
