@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * Created by Andrei on 9/17/2015.
  */
 @Controller
-@RequestMapping("/booyah/api/group")
+@RequestMapping("/api/group")
 public class GroupService {
 
   @Autowired

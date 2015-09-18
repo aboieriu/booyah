@@ -12,7 +12,6 @@ import java.util.List;
  * Created by root on 9/10/15.
  */
 @Controller
-@RequestMapping("/booyah/api/user")
 public class UserService {
 
     @Autowired

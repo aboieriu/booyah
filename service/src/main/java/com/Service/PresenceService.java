@@ -15,6 +15,7 @@ import model.Presence;
 
 @Controller
 
+
 public class PresenceService {
 
     @Autowired
