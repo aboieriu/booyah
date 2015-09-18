@@ -21,20 +21,20 @@ public class PresenceService {
     @Autowired
     private IPresenceFacade presenceFacade;
 
-    @RequestMapping(value = "/group/{groupId}/user/{userId}/presence", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/group/{groupId}/user/{userId}/presence", method = RequestMethod.GET)
     @ResponseBody
     public Presence getPresence(@PathVariable("groupId") Long groupId, @PathVariable("userId") Long userId ) {
 
         return null;
     }
 
-    @RequestMapping(value = "/group/{groupId}/presence", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/group/{groupId}/presence", method = RequestMethod.GET)
     @ResponseBody
     public List<Presence> getAllPresence(@PathVariable("groupId") Long groupId){
         return this.presenceFacade.getAllPresence(groupId);
     }
 
-    @RequestMapping(value = "/group/{groupId}/user/{userId}/presence", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/group/{groupId}/user/{userId}/presence", method = RequestMethod.POST)
     @ResponseBody
     public void addPresence(@PathVariable("groupId") Long groupId, @PathVariable("userId") Long userId, @RequestBody Presence newPresence) {
 
@@ -43,7 +43,7 @@ public class PresenceService {
         this.presenceFacade.addPresence(newPresence);
     }
 
-    @RequestMapping(value = "/group/{groupId}/user/{userId}/presence/{presenceId}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/api/group/{groupId}/user/{userId}/presence/{presenceId}", method = RequestMethod.DELETE)
     @ResponseBody
     public void deletePresence(@PathVariable("groupId") Long groupId, @PathVariable("userId") Long userId, @PathVariable("presenceId") Long presenceId) {
         this.presenceFacade.deletePresence(groupId,presenceId);
