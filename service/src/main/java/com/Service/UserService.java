@@ -38,7 +38,7 @@ public class UserService {
         return this.userFacade.getUser(groupId, userId);
     }
 
-    @RequestMapping(value="/api/group/{groupId}/user/{userId}}", method= RequestMethod.PUT)
+    @RequestMapping(value="/api/group/{groupId}/user/{userId}", method= RequestMethod.PUT)
     @ResponseBody
     public void updateUser(@PathVariable("userId")Long userId,@PathVariable("groupId")Long groupId, @RequestBody User userUpdates) {
         userUpdates.setId(userId);

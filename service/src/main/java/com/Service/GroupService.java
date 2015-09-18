@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * Created by Andrei on 9/17/2015.
  */
 @Controller
-@RequestMapping("/api/group")
+
 public class GroupService {
 
   @Autowired
@@ -25,15 +25,20 @@ public class GroupService {
     public IGroupFacade getGroupFacade() {
         return groupFacade;
     }
+    public void setGroupFacade(IGroupFacade groupFacade) {
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+        this.groupFacade = groupFacade;
+    }
+
+
+    @RequestMapping(value = "/api/group", method = RequestMethod.GET)
     @ResponseBody
     public List<Group> getAllGroups(){
         return this.groupFacade.getAllGroups();
 
     }
 
-    @RequestMapping(value = "/{groupId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/group/{groupId}", method = RequestMethod.GET)
     @ResponseBody
     public Group getGroup(@PathVariable("groupId") Long groupId){
 
@@ -42,28 +47,26 @@ public class GroupService {
     }
 
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/group", method = RequestMethod.POST)
     @ResponseBody
     public void addGroup(@RequestBody Group group) {
 
         this.groupFacade.addGroup(group);
     }
 
-    @RequestMapping(value = "/{groupId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/api/group//{groupId}", method = RequestMethod.PUT)
     @ResponseBody
     public void updateGroup(@PathVariable("groupId") Long groupId, @RequestBody Group groupUpdates){
         groupUpdates.setId(groupId);
         this.groupFacade.updateGroup(groupUpdates);
     }
 
-    @RequestMapping(value = "/{groupId}", method = RequestMethod.DELETE)
-    @ResponseBody
 
+    @RequestMapping(value = "/api/group/{groupId}", method = RequestMethod.DELETE)
+    @ResponseBody
     public void  deleteGroup(@PathVariable("groupId") Long groupId) {
         this.groupFacade.deleteGroup(groupId);
     }
-    public void setGroupFacade(IGroupFacade groupFacade) {
-        this.groupFacade = groupFacade;
-    }
+
 
 }

@@ -26,4 +26,17 @@
         </listener-class>
     </listener>
 
+
+    <filter>
+        <filter-name>Filter</filter-name>
+        <filter-class>com.Service.CorsFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+
 </web-app>
