@@ -8,7 +8,7 @@ import javax.persistence.*;
  * Created by DELIA on 17.09.2015.
  */
 @Entity
-@Table(name = "presence")
+@Table(name = "user")
 public class User {
 
     @GeneratedValue(generator = "idIncrementor")

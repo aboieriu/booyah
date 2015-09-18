@@ -10,7 +10,7 @@ import java.util.Date;
  */
 
 @Entity
-@Table(name = "group")
+@Table(name = "student_group")
 public class Group {
 
     @GeneratedValue(generator = "idIncrementor")

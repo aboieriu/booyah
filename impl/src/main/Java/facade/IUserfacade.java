@@ -1,15 +1,13 @@
 package facade;
 
-import model.Group;
 import model.User;
 
 import java.util.List;
 
 /**
- * Created by Adi on 9/17/2015.
+ * Created by root on 9/18/15.
  */
 public interface IUserFacade {
-
     public List<User> getAllUsers(Long groupId);
 
 
