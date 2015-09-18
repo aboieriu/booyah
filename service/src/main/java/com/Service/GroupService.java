@@ -19,8 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/booyah/api/group")
 public class GroupService {
 
-    @Autowired
-
+  @Autowired
     private IGroupFacade groupFacade;
     public IGroupFacade getGroupFacade() {
         return groupFacade;
