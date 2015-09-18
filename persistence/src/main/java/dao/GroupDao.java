@@ -40,7 +40,7 @@ public class GroupDao implements IGroupDao {
     @Transactional
     public void addGroup(Group group)
     {
-        group.setStartDate(new Date());
+
         entityManager.persist(group);
 
     }
