@@ -18,8 +18,6 @@ public class Presence {
     @Id
     private Long id;
 
-    @Column(name = "name")
-    private String name;
 
     @Column(name = "groupId")
     private Long groupId;
@@ -33,8 +31,8 @@ public class Presence {
     public Presence() {
     }
 
-    public Presence(String name, Long groupId, Long userId, Date date) {
-        this.name = name;
+    public Presence( Long groupId, Long userId, Date date) {
+
         this.groupId = groupId;
         this.userId = userId;
         this.date = date;
@@ -46,14 +44,6 @@ public class Presence {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Long getGroupId() {
