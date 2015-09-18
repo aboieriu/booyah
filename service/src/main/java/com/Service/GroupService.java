@@ -51,6 +51,7 @@ public class GroupService {
     @ResponseBody
     public void addGroup(@RequestBody Group group) {
 
+
         this.groupFacade.addGroup(group);
     }
 

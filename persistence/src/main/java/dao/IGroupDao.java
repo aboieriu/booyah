@@ -2,6 +2,7 @@ package dao;
 
 import model.Group;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,7 +16,5 @@ public interface IGroupDao {
     public void updateGroup(Group group);
     public void deleteGroup(Long id);
     public Group getGroup(Long id);
-
-
 
 }

@@ -3,6 +3,7 @@ package dao;
 import model.Group;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 import javax.persistence.PersistenceContext;
 import java.util.Date;
@@ -37,12 +38,23 @@ public class GroupDao implements IGroupDao {
         }
     }
 
+    private Group getGroupByStarDateAndEndDate(Date startDate, Date endDate)
+    {
+        Query query = this.entityManager.createQuery("from Group WHERE startDate =:targetStartDate AND endDate =:targetEndDate");
+        query.setParameter("targetStartDate", startDate);
+        query.setParameter("targetEndDate", endDate);
+        return (Group)query.getSingleResult();
+    }
+
     @Transactional
     public void addGroup(Group group)
     {
 
-        entityManager.persist(group);
-
+        Group groupFromDbs = this.getGroupByStarDateAndEndDate(group.getStartDate(), group.getEndDate());
+        if(groupFromDbs == null)
+        {
+            entityManager.persist(group);
+        }
     }
 
     @Transactional
