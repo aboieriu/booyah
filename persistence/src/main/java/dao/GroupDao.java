@@ -51,7 +51,7 @@ public class GroupDao implements IGroupDao {
     {
 
         Group groupFromDbs = this.getGroupByStarDateAndEndDate(group.getStartDate(), group.getEndDate());
-        if(groupFromDbs == null)
+        if(groupFromDbs != null)
         {
             entityManager.persist(group);
         }
