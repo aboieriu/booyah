@@ -22,9 +22,9 @@ public class PresenceFacade implements IPresenceFacade{
         this.presenceDao = presenceDao;
     }
 
-    public List<Presence> getAllPresence(Long groupId) {
+    public List<Presence> getAllPresence(Long groupId,Long userId) {
 
-        return this.presenceDao.getAll(groupId);
+        return this.presenceDao.getAll(groupId,userId);
     }
 
     public Presence getPresence(Long groupId, Long userId){

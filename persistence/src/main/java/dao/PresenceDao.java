@@ -21,10 +21,10 @@ public class PresenceDao implements IPresenceDao{
         this.entityManager = entityManager;
     }
 
-    public List<Presence> getAll(Long groupId) {
-
-        Query query = this.entityManager.createQuery("from Presence WHERE groupId =:targetGroupId");
+    public List<Presence> getAll(Long groupId, Long userId) {
+        Query query = this.entityManager.createQuery("from Presence WHERE groupId =:targetGroupId AND userId =:targetUserId");
         query.setParameter("targetGroupId", groupId);
+        query.setParameter("targetUserId", userId);
         return query.getResultList();
 
     }
@@ -56,8 +56,6 @@ public class PresenceDao implements IPresenceDao{
 
     @Transactional
     public void addPresence(Presence myPresence) {
-
-        myPresence.setDate(new Date());
         entityManager.persist(myPresence);
     }
 }

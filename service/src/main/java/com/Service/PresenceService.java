@@ -14,8 +14,6 @@ import model.Presence;
  */
 
 @Controller
-
-
 public class PresenceService {
 
     @Autowired
@@ -23,16 +21,11 @@ public class PresenceService {
 
     @RequestMapping(value = "/api/group/{groupId}/user/{userId}/presence", method = RequestMethod.GET)
     @ResponseBody
-    public Presence getPresence(@PathVariable("groupId") Long groupId, @PathVariable("userId") Long userId ) {
+    public List<Presence> getAllPresence(@PathVariable("groupId") Long groupId, @PathVariable("userId") Long userId ) {
 
-        return null;
+        return this.presenceFacade.getAllPresence(groupId,userId);
     }
 
-    @RequestMapping(value = "/api/group/{groupId}/presence", method = RequestMethod.GET)
-    @ResponseBody
-    public List<Presence> getAllPresence(@PathVariable("groupId") Long groupId){
-        return this.presenceFacade.getAllPresence(groupId);
-    }
 
     @RequestMapping(value = "/api/group/{groupId}/user/{userId}/presence", method = RequestMethod.POST)
     @ResponseBody
